@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sugar Blast Clone</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+    }
+    #game-board {
+      display: grid;
+      grid-template-columns: repeat(8, 50px);
+      grid-gap: 5px;
+    }
+    .tile {
+      width: 50px;
+      height: 50px;
+      background-color: #ffcc00;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div id="game-board"></div>
+
+  <script>
+    const board = document.getElementById('game-board');
+    const colors = ['#ffcc00', '#ff6666', '#66ccff', '#66ff66', '#ff66ff'];
+
+    function createBoard() {
+      for (let i = 0; i < 64; i++) {
+        const tile = document.createElement('div');
+        tile.classList.add('tile');
+        tile.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        board.appendChild(tile);
+      }
+    }
+
+    createBoard();
+  </script>
+</body>
+</html>
